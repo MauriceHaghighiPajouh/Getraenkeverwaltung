@@ -16,6 +16,9 @@ public class Hauptmenue extends JFrame {
         verkaufen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+
+
             }
         });
     }

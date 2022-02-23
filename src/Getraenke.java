@@ -44,7 +44,7 @@ public class Getraenke {
     }
 
     //kassenzettel methode
-    public String kassenzettelDrucken(int verkaufsmenge){
+     public String kassenzettelDrucken(int verkaufsmenge){
         String kassenzettel;
         double gesamtpreis;
         gesamtpreis=preis*verkaufsmenge;
