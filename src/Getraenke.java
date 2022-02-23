@@ -42,4 +42,21 @@ public class Getraenke {
     public void setPreis(double preis) {
         this.preis = preis;
     }
+
+    //kassenzettel methode
+    public String kassenzettelDrucken(int verkaufsmenge){
+        String kassenzettel;
+        double gesamtpreis;
+        gesamtpreis=preis*verkaufsmenge;
+        kassenzettel="gesamtpreis"+gesamtpreis;
+        return kassenzettel;
+    }
+
+    //methode getränkeverkauf
+    public String verkaufen (int verkaufsmenge) {
+        String ausgabetext;
+        bestand = bestand - verkaufsmenge;
+        ausgabetext=kassenzettelDrucken(verkaufsmenge);
+        return ausgabetext;
+    }
 }
