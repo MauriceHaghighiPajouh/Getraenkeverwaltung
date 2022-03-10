@@ -37,12 +37,20 @@ public class Hauptmenue extends JFrame {
         verkaufsFenster.pack(); // pack
         verkaufsFenster.setSize(800, 600);  // fenster größe
 
+        //Rechnungsfenster
+        JFrame rechnungsFenster = new JFrame("Rechnung");
+        rechnungsFenster.setContentPane(new Rechnungsfenster(liste).panel1);
+        rechnungsFenster.pack();
+        rechnungsFenster.setSize(480,320);
+
         // LAMBDA LISTENER FÜR VERKAUFEN
+        verkaufen.addActionListener(e->rechnungsFenster.setVisible(true));
         verkaufen.addActionListener(e -> verkaufsFenster.setVisible(true));
         verkaufen.addActionListener(e -> bestellFenster.dispose());
 
         bestellenButton1.addActionListener(e -> bestellFenster.setVisible(true));
         bestellenButton1.addActionListener(e ->verkaufsFenster.dispose());
+        bestellenButton1.addActionListener(e->rechnungsFenster.dispose());
 
 
 
