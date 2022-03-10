@@ -1,4 +1,5 @@
 import java.lang.*;
+import java.util.ArrayList;
 
 public class Getraenke {
 
@@ -8,7 +9,10 @@ public class Getraenke {
     private double preis;
     private int altersbeschr;
 
-    //Konstruktoren
+
+    //Arraylist
+
+
 
     public Getraenke(String getraenkeName, int getrankeBestand, double getraenkePreis, int altersbeschr) {
         this.name = getraenkeName;
@@ -69,4 +73,7 @@ public class Getraenke {
         ausgabetext = kassenzettelDrucken(verkaufsmenge);
         return ausgabetext;
     }
+
+
+
 }
