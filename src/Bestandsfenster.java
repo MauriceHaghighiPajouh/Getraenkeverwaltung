@@ -1,18 +1,16 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class Rechnungsfenster {
-    public JPanel panel1;
-    private JTextField textField1;
+public class Bestandsfenster {
 
     ArrayList<Getraenke> liste;
+    private JTable table1;
+    public JPanel panel1;
 
-    public Rechnungsfenster (ArrayList<Getraenke> liste){
+    public Bestandsfenster (ArrayList<Getraenke> liste){
 
         this.liste=liste;
         for (Getraenke item : liste) {
         }
-
-
     }
 }

@@ -40,18 +40,31 @@ public class Hauptmenue extends JFrame {
         //Rechnungsfenster
         JFrame rechnungsFenster = new JFrame("Rechnung");
         rechnungsFenster.setContentPane(new Rechnungsfenster(liste).panel1);
+        rechnungsFenster.setDefaultCloseOperation(rechnungsFenster.DISPOSE_ON_CLOSE);
         rechnungsFenster.pack();
         rechnungsFenster.setSize(480,320);
+
+        //bestandsfenstr
+        JFrame bestandsFenster = new JFrame("Bestand");
+        bestandsFenster.setContentPane(new Bestandsfenster(liste).panel1);
+        bestandsFenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close button
+        bestandsFenster.pack(); // pack
+        bestandsFenster.setSize(768, 576);  // fenster größe
 
         // LAMBDA LISTENER FÜR VERKAUFEN
         verkaufen.addActionListener(e->rechnungsFenster.setVisible(true));
         verkaufen.addActionListener(e -> verkaufsFenster.setVisible(true));
         verkaufen.addActionListener(e -> bestellFenster.dispose());
 
+        //BESTELLKNOPF
+
         bestellenButton1.addActionListener(e -> bestellFenster.setVisible(true));
         bestellenButton1.addActionListener(e ->verkaufsFenster.dispose());
         bestellenButton1.addActionListener(e->rechnungsFenster.dispose());
 
+        //BESTAND KNOPF
+
+         infoBestandButton.addActionListener(e->bestandsFenster.setVisible(true));
         infoBestandButton.addActionListener(e->textField1.setText(String.valueOf(liste.get(1).getBestand())));
 
 

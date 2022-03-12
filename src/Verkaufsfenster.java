@@ -17,7 +17,7 @@ public class Verkaufsfenster {
             comboBox1.addItem(item.getName());
 
         }
-        textField1.addActionListener(e->liste.get(1).verkaufen(Integer.parseInt(textField1.getText())));
+        textField1.addActionListener(e->liste.get(comboBox1.getSelectedIndex()).verkaufen(Integer.parseInt(textField1.getText())));
 
 
     }
