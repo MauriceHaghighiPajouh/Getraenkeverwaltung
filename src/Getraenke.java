@@ -56,8 +56,7 @@ public class Getraenke {
     public void setAltersbeschr(int altersbeschr) {
         this.altersbeschr = altersbeschr;
     }
-
-    //kassenzettel methode
+/*
     public String kassenzettelDrucken(int verkaufsmenge) {
         String kassenzettel;
         double gesamtpreis;
@@ -72,6 +71,10 @@ public class Getraenke {
         bestand = bestand - verkaufsmenge;
         ausgabetext = kassenzettelDrucken(verkaufsmenge);
         return ausgabetext;
+    }
+    */
+    public void verkaufen(int verkaufsmenge){
+        this.bestand = this.bestand -verkaufsmenge;
     }
 
 

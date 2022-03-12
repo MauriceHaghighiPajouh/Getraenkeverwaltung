@@ -52,6 +52,8 @@ public class Hauptmenue extends JFrame {
         bestellenButton1.addActionListener(e ->verkaufsFenster.dispose());
         bestellenButton1.addActionListener(e->rechnungsFenster.dispose());
 
+        infoBestandButton.addActionListener(e->textField1.setText(String.valueOf(liste.get(1).getBestand())));
+
 
 
     }

@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Rechnungsfenster {
-    private JTable table1;
     public JPanel panel1;
+    private JTextField textField1;
 
     ArrayList<Getraenke> liste;
 

@@ -10,30 +10,23 @@ public class Verkaufsfenster {
     private JTextField textField1;
     private JComboBox comboBox1;
 
+    public Verkaufsfenster(ArrayList<Getraenke> liste) {
 
-
-
-
-
-    public Verkaufsfenster (ArrayList<Getraenke> liste){
-
-        this.liste=liste;
+        this.liste = liste;
         for (Getraenke item : liste) {
             comboBox1.addItem(item.getName());
-        }
 
+        }
+        textField1.addActionListener(e->liste.get(1).verkaufen(Integer.parseInt(textField1.getText())));
 
 
     }
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
+    /*private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            liste.get(1).verkaufen(Integer.parseInt(textField1.getText()));
         }
     }
-
-
-
-
-
+*/
 
 }
