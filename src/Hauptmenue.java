@@ -47,12 +47,12 @@ public class Hauptmenue extends JFrame {
         //bestandsfenstr
         JFrame bestandsFenster = new JFrame("Bestand");
         bestandsFenster.setContentPane(new Bestandsfenster(liste).panel1);
-        bestandsFenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close button
+        bestandsFenster.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // close button
         bestandsFenster.pack(); // pack
         bestandsFenster.setSize(768, 576);  // fenster größe
 
         // LAMBDA LISTENER FÜR VERKAUFEN
-        verkaufen.addActionListener(e->rechnungsFenster.setVisible(true));
+        //verkaufen.addActionListener(e->rechnungsFenster.setVisible(true));
         verkaufen.addActionListener(e -> verkaufsFenster.setVisible(true));
         verkaufen.addActionListener(e -> bestellFenster.dispose());
 

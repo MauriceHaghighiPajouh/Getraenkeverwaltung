@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Rechnungsfenster {
     public JPanel panel1;
-    private JTextField textField1;
+    private JTable table1;
 
     ArrayList<Getraenke> liste;
 
@@ -12,6 +12,12 @@ public class Rechnungsfenster {
         this.liste=liste;
         for (Getraenke item : liste) {
         }
+
+
+
+
+
+
 
 
     }

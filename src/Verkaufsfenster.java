@@ -9,6 +9,7 @@ public class Verkaufsfenster {
     public JPanel panel1;
     private JTextField textField1;
     private JComboBox comboBox1;
+    private JTable table1;
 
     public Verkaufsfenster(ArrayList<Getraenke> liste) {
 

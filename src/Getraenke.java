@@ -1,17 +1,18 @@
 import java.lang.*;
-import java.util.ArrayList;
 
-public class Getraenke {
+
+public class Getraenke extends Ware {
 
     // Attribute
-    private String name;
+
+    /*private String name;
     private int bestand;
-    private double preis;
+    private double preis;*/
+
     private int altersbeschr;
 
 
     //Arraylist
-
 
 
     public Getraenke(String getraenkeName, int getrankeBestand, double getraenkePreis, int altersbeschr) {
@@ -23,60 +24,15 @@ public class Getraenke {
     }
     //get-methode
 
-    public String getName() {
-        return name;
-    }
 
-    public int getBestand() {
-        return bestand;
-    }
-
-    public double getPreis() {
-        return preis;
+    public void setAltersbeschr(int altersbeschr) {
+        this.altersbeschr = altersbeschr;
     }
 
     public int getAltersbeschr() {
         return altersbeschr;
     }
 
-    //set-methode
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBestand(int bestand) {
-        this.bestand = bestand;
-    }
-
-    public void setPreis(double preis) {
-        this.preis = preis;
-    }
-
-    public void setAltersbeschr(int altersbeschr) {
-        this.altersbeschr = altersbeschr;
-    }
-
-    public String kassenzettelDrucken(int verkaufsmenge) {
-        String kassenzettel;
-        double gesamtpreis;
-        gesamtpreis = preis * verkaufsmenge;
-        kassenzettel = "gesamtpreis" + gesamtpreis;
-        return kassenzettel;
-    }
-
-    //methode getränkeverkauf
-    public String verkaufen(int verkaufsmenge) {
-        String ausgabetext;
-        bestand = bestand - verkaufsmenge;
-        ausgabetext = kassenzettelDrucken(verkaufsmenge);
-        return ausgabetext;
-    }
-
-   /* public void verkaufen(int verkaufsmenge){
-        this.bestand = this.bestand -verkaufsmenge;
-        }
-        */
 
 
 
