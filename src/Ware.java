@@ -32,20 +32,26 @@ public class Ware {
     }
 
 
-    //methode getränkeverkauf
+    //methode verkauf
     public String verkaufen(int verkaufsmenge) {
         String ausgabetext;
         bestand = bestand - verkaufsmenge;
-        ausgabetext = kassenzettelDrucken(verkaufsmenge);
+        ausgabetext = warenkorb(verkaufsmenge);
         return ausgabetext;
     }
+    public void bestellen(int bestellmenge){
+        String bestellbeleg;
+        bestand=bestand+bestellmenge;
 
-    public String kassenzettelDrucken(int verkaufsmenge) {
+    }
+
+    public String warenkorb(int verkaufsmenge) {
         String kassenzettel;
         double gesamtpreis;
         gesamtpreis = preis * verkaufsmenge;
         kassenzettel = "gesamtpreis" + gesamtpreis;
         return kassenzettel;
     }
+
 
 }

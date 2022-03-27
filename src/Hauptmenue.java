@@ -11,7 +11,6 @@ public class Hauptmenue extends JFrame {
     public JPanel panel1;      //panel
     public JButton infoBestandButton; //bestand knopf
     public JButton verkaufen;
-    public JTextField textField1;
     private ArrayList<Getraenke> liste;
 
 
@@ -24,8 +23,8 @@ public class Hauptmenue extends JFrame {
         this.liste=liste;
 
         //BESTELL FENSTER
-        JFrame bestellFenster = new JFrame("Bestellungen");
-        bestellFenster.setContentPane(new Verkaufsfenster(liste).panel1);
+        JFrame bestellFenster = new JFrame("Bestand erhöhen");
+        bestellFenster.setContentPane(new Bestellfenster(liste).panel1);
         bestellFenster.setDefaultCloseOperation(bestellFenster.DISPOSE_ON_CLOSE); // close button
         bestellFenster.pack(); // pack
         bestellFenster.setSize(800, 600);  // fenster größe
@@ -45,14 +44,13 @@ public class Hauptmenue extends JFrame {
         rechnungsFenster.setSize(480,320);
 
         //bestandsfenstr
-        JFrame bestandsFenster = new JFrame("Bestand");
+        JFrame bestandsFenster = new JFrame("Bestand info");
         bestandsFenster.setContentPane(new Bestandsfenster(liste).panel1);
         bestandsFenster.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // close button
         bestandsFenster.pack(); // pack
         bestandsFenster.setSize(768, 576);  // fenster größe
 
         // LAMBDA LISTENER FÜR VERKAUFEN
-        //verkaufen.addActionListener(e->rechnungsFenster.setVisible(true));
         verkaufen.addActionListener(e -> verkaufsFenster.setVisible(true));
         verkaufen.addActionListener(e -> bestellFenster.dispose());
 
@@ -65,7 +63,6 @@ public class Hauptmenue extends JFrame {
         //BESTAND KNOPF
 
          infoBestandButton.addActionListener(e->bestandsFenster.setVisible(true));
-        infoBestandButton.addActionListener(e->textField1.setText(String.valueOf(liste.get(1).getBestand())));
 
 
 

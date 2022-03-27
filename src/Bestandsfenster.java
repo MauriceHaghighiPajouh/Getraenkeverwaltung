@@ -1,39 +1,41 @@
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+
 
 public class Bestandsfenster {
 
     ArrayList<Getraenke> liste;
     public JPanel panel1;
-    public JTable table1;
+    private JComboBox comboBox1;
+    private JLabel label1;
+    private JButton button1;
 
 
     public Bestandsfenster(ArrayList<Getraenke> liste) {
-
         this.liste = liste;
         for (Getraenke item : liste) {
+            comboBox1.addItem(item.getName());
+
+            label1.setText(String.valueOf(liste.get(0).getBestand()));
+
+
+            comboBox1.addActionListener(e->label1.setText(String.valueOf(liste.get(comboBox1.getSelectedIndex()).getBestand())));
+
+            button1.addActionListener(e->label1.setText(String.valueOf(liste.get(comboBox1.getSelectedIndex()).getBestand())));
+
+
         }
 
 
-
     }
-    /*
-    public void addRowToJTable()
-    {
-        DefaultTableModel model = (DefaultTableModel) table1.getModel();
-        Object rowData[] = new Object[4];
-        for(int i = 0; i < liste.size(); i++)
-    {
-        rowData[0] = liste.get(i).getName();
-        rowData[1] = liste.get(i).getBestand();
-        rowData[2] = liste.get(i).getPreis();
-        rowData[3] = liste.get(i).getAltersbeschr();
-        model.addRow(rowData);
-    }
-
-    } */
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
