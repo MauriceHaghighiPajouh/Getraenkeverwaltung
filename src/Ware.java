@@ -1,8 +1,14 @@
-public class Ware {
+public abstract class Ware {
 
-    protected String name;
-    protected int bestand;
-    protected double preis;
+    private String name;
+    private int bestand;
+    private double preis;
+
+    Ware(String name, int bestand, double preis) {
+        this.name = name;
+        this.bestand = bestand;
+        this.preis = preis;
+    }
 
     public String getName() {
         return name;
@@ -39,10 +45,10 @@ public class Ware {
         ausgabetext = warenkorb(verkaufsmenge);
         return ausgabetext;
     }
-    public void bestellen(int bestellmenge){
-        String bestellbeleg;
-        bestand=bestand+bestellmenge;
 
+    public void bestellen(int bestellmenge) {
+        String bestellbeleg;
+        bestand = bestand + bestellmenge;
     }
 
     public String warenkorb(int verkaufsmenge) {
@@ -52,6 +58,5 @@ public class Ware {
         kassenzettel = "gesamtpreis" + gesamtpreis;
         return kassenzettel;
     }
-
 
 }

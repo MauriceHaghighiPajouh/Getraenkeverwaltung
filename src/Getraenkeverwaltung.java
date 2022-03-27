@@ -11,7 +11,6 @@ public class Getraenkeverwaltung {
 
     public static void main(String[] args) {
 
-
         //getränke initialisieren in einer Array-List
 
         ArrayList<Getraenke> getraenk = new ArrayList<Getraenke>();

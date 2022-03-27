@@ -12,12 +12,10 @@ public class Verkaufsfenster {
     private JComboBox comboBox1;
     private JTable table1;
     private JButton loeschenButton;
-    public int x;
 
-    String namewk;
-    int mengewk;
-    double preiswk;
-
+    // Column Names
+    private String[] columnNames = {"Name", "Menge", "Preis"};
+    private String[][] data = new String[0][columnNames.length];
 
     public Verkaufsfenster(ArrayList<Getraenke> liste) {
 
@@ -25,36 +23,36 @@ public class Verkaufsfenster {
         this.liste = liste;
         for (Getraenke item : liste) {
             comboBox1.addItem(item.getName());
-
         }
-        textField1.addActionListener(e -> liste.get(comboBox1.getSelectedIndex()).verkaufen(Integer.parseInt(textField1.getText())));
 
-        textField1.addActionListener(e -> mengewk = (Integer.parseInt(textField1.getText())));
-
-        textField1.addActionListener(e -> preiswk = mengewk * liste.get(comboBox1.getSelectedIndex()).getPreis());
-
-
-
-        String[][] data = {
-                {"penis","vagina","eier"},
-        };
-
-        // Column Names
-        String[] columnNames = {"Name", "Menge", "Preis"};
+        textField1.addActionListener(e -> this.verkaufen());
 
         // Initializing the JTable
         table1.setModel(new DefaultTableModel());
 
-
-        textField1.addActionListener(e -> table1.setModel(new DefaultTableModel(data, columnNames)));
-
         loeschenButton.addActionListener(e -> table1.setModel(new DefaultTableModel()));
-
-
     }
 
-    public void setNamewk(String namewk) {
-        this.namewk = namewk;
+
+    private void verkaufen() {
+        Getraenke selectedGetraenk = liste.get(comboBox1.getSelectedIndex());
+        int vkmenge = Integer.parseInt(textField1.getText());
+
+        selectedGetraenk.verkaufen(vkmenge);
+
+        String[][] updatedData = new String[data.length + 1][columnNames.length];
+        for (int i = 0; i < data.length; i++) {
+            updatedData[i] = data[i];
+        }
+
+        String[] newData = updatedData[updatedData.length - 1];
+        newData[0] = selectedGetraenk.getName();
+        newData[1] = String.valueOf(vkmenge);
+        newData[2] = String.valueOf(vkmenge * selectedGetraenk.getPreis());
+
+        data = updatedData;
+
+        table1.setModel(new DefaultTableModel(data, columnNames));
     }
 
 
