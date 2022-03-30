@@ -13,7 +13,6 @@ public class Getraenke extends Ware {
         super(getraenkeName, getrankeBestand, getraenkePreis);
         this.altersbeschr = altersbeschr;
     }
-    //get-methode
 
     public void setAltersbeschr(int altersbeschr) {
         this.altersbeschr = altersbeschr;

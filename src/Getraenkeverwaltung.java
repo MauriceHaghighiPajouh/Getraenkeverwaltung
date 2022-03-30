@@ -37,7 +37,7 @@ public class Getraenkeverwaltung {
 
 
         JFrame frame = new JFrame("MO-GVFD");
-        frame.setContentPane(new Hauptmenue(getraenk).panel1);
+        frame.setContentPane(new Hauptmenue(getraenk,snack).panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close button
         frame.pack(); // pack
         frame.setSize(1024, 768);  // fenster größe

@@ -18,7 +18,7 @@ public class Hauptmenue extends JFrame {
 
 
 
-    public Hauptmenue(ArrayList<Getraenke> liste) {
+    public Hauptmenue(ArrayList<Getraenke> liste,ArrayList<Snacks>listesnacks) {
 
         this.liste=liste;
 
@@ -31,7 +31,7 @@ public class Hauptmenue extends JFrame {
 
         //VK FENSTER
         JFrame verkaufsFenster = new JFrame("Verkauf");
-        verkaufsFenster.setContentPane(new Verkaufsfenster(liste).panel1);
+        verkaufsFenster.setContentPane(new Verkaufsfenster(liste,listesnacks).panel1);
         verkaufsFenster.setDefaultCloseOperation(verkaufsFenster.DISPOSE_ON_CLOSE); // close button
         verkaufsFenster.pack(); // pack
         verkaufsFenster.setSize(800, 600);  // fenster größe
