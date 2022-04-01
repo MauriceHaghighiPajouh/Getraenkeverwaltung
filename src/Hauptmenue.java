@@ -24,7 +24,7 @@ public class Hauptmenue extends JFrame {
 
         //BESTELL FENSTER
         JFrame bestellFenster = new JFrame("Bestand erhöhen");
-        bestellFenster.setContentPane(new Bestellfenster(liste).panel1);
+        bestellFenster.setContentPane(new Bestellfenster(liste,listesnacks).panel1);
         bestellFenster.setDefaultCloseOperation(bestellFenster.DISPOSE_ON_CLOSE); // close button
         bestellFenster.pack(); // pack
         bestellFenster.setSize(800, 600);  // fenster größe
@@ -36,16 +36,11 @@ public class Hauptmenue extends JFrame {
         verkaufsFenster.pack(); // pack
         verkaufsFenster.setSize(800, 600);  // fenster größe
 
-        //Rechnungsfenster
-        JFrame rechnungsFenster = new JFrame("Rechnung");
-        rechnungsFenster.setContentPane(new Rechnungsfenster(liste).panel1);
-        rechnungsFenster.setDefaultCloseOperation(rechnungsFenster.DISPOSE_ON_CLOSE);
-        rechnungsFenster.pack();
-        rechnungsFenster.setSize(480,320);
+
 
         //bestandsfenstr
         JFrame bestandsFenster = new JFrame("Bestand info");
-        bestandsFenster.setContentPane(new Bestandsfenster(liste).panel1);
+        bestandsFenster.setContentPane(new Bestandsfenster(liste,listesnacks).panel1);
         bestandsFenster.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // close button
         bestandsFenster.pack(); // pack
         bestandsFenster.setSize(768, 576);  // fenster größe
@@ -58,7 +53,6 @@ public class Hauptmenue extends JFrame {
 
         bestellenButton1.addActionListener(e -> bestellFenster.setVisible(true));
         bestellenButton1.addActionListener(e ->verkaufsFenster.dispose());
-        bestellenButton1.addActionListener(e->rechnungsFenster.dispose());
 
         //BESTAND KNOPF
 

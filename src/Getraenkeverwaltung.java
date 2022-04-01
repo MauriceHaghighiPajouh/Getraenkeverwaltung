@@ -32,8 +32,8 @@ public class Getraenkeverwaltung {
         snack.add(new Snacks("Chips",90,2.50,false));
         snack.add(new Snacks("BumBum-Eis",50,2.00,false));
         snack.add(new Snacks("Erdnüsse",60,2.00,true));
-        snack.add(new Snacks("Nic-Nacs",100,3.00,true));
-
+        snack.add(new Snacks("Nachos",50,4.00,false));
+        snack.add(new Snacks("Erdnussflips",75,2.50,true));
 
 
         JFrame frame = new JFrame("MO-GVFD");
