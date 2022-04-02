@@ -21,9 +21,9 @@ public class Verkaufsfenster {
     private JButton loeschenButton;
     private JComboBox comboBox2;
     private JTextField textField2;
-    private JButton verkaufenButton;
-    private JLabel labelsteuer;
-    private JLabel labelpreis;
+    private JLabel labelrechnung;
+    private JButton verkaufenbutton;
+    private JLabel labelmwst;
 
 
     // Column Names
@@ -63,18 +63,17 @@ public class Verkaufsfenster {
 
         loeschenButton.addActionListener(e -> table1.setModel(new DefaultTableModel()));
 
-        verkaufenButton.addActionListener(e->rechnung());
+        verkaufenbutton.addActionListener(e->getSum());
+
+        loeschenButton.addActionListener(e->labelrechnung.setText(""));
+        loeschenButton.addActionListener(e->labelmwst.setText(""));
 
 
-
-        }
-
-
-
-
+    }
 
 
     private void verkaufenGetraenk() {
+
         Getraenke selectedGetraenk = liste.get(comboBox1.getSelectedIndex());
         int vkmenge = Integer.parseInt(textField1.getText());
 
@@ -88,13 +87,13 @@ public class Verkaufsfenster {
         String[] newData = updatedData[updatedData.length - 1];
         newData[0] = selectedGetraenk.getName();
         newData[1] = String.valueOf(vkmenge);
-        newData[2] = String.format("%.2f", vkmenge * selectedGetraenk.getPreis());
-
+        newData[2] = String.valueOf( vkmenge * selectedGetraenk.getPreis());
 
 
         data = updatedData;
 
         table1.setModel(new DefaultTableModel(data, columnNames));
+
 
     }
 
@@ -103,6 +102,7 @@ public class Verkaufsfenster {
     }
 
     private void verkaufenSnacks() {
+
 
         Snacks selectedSnack = listesnacks.get(comboBox2.getSelectedIndex());
         int vkmenge = Integer.parseInt(textField2.getText());
@@ -118,26 +118,30 @@ public class Verkaufsfenster {
         String[] newData = updatedData[updatedData.length - 1];
         newData[0] = selectedSnack.getName();
         newData[1] = String.valueOf(vkmenge);
-        newData[2] = String.format("%.2f", vkmenge * selectedSnack.getPreis());
+        newData[2] = String.valueOf(vkmenge * selectedSnack.getPreis());
 
         data = updatedData;
+
 
         table1.setModel(new DefaultTableModel(data, columnNames));
 
 
     }
-    private void rechnung(){
-        double preis=0;
 
-        for (int i=0;i< data.length;i++){
-            preis=preis + DoubleStream.of(Double.parseDouble(data[i][2])).sum();
 
+    public void getSum()
+    {
+        int numrow= table1.getRowCount();
+        double total=0;
+
+        for (int i = 0;i<numrow;i++){
+            double value = Double.valueOf(table1.getValueAt(i,2).toString());
+            total+=value;
         }
-        labelpreis.setText(String.valueOf(preis));
+        labelrechnung.setText(String.format("%4.2f",(total)));
+        labelmwst.setText(String.format("%4.2f",(total*0.19)));
+
     }
-
-
-
 
 }
 

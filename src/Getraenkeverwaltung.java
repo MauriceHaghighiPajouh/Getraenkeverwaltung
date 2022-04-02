@@ -44,15 +44,6 @@ public class Getraenkeverwaltung {
         frame.setVisible(true);  // fenster sichtbar machen
 
 
-        //scanner
-        Scanner tastatur = new Scanner(System.in);
-        //funktionen initalisieren
-        int bestellmenge;
-        int verkaufsmenge;
-
-        verkaufsmenge = tastatur.nextInt();
-
-        //verkaufen
 
     }
 

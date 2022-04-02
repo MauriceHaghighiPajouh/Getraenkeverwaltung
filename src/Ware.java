@@ -39,24 +39,14 @@ public abstract class Ware {
 
 
     //methode verkauf
-    public String verkaufen(int verkaufsmenge) {
-        String ausgabetext;
+    public void verkaufen(int verkaufsmenge) {
         bestand = bestand - verkaufsmenge;
-        ausgabetext = warenkorb(verkaufsmenge);
-        return ausgabetext;
     }
 
     public void bestellen(int bestellmenge) {
-        String bestellbeleg;
         bestand = bestand + bestellmenge;
     }
 
-    public String warenkorb(int verkaufsmenge) {
-        String kassenzettel;
-        double gesamtpreis;
-        gesamtpreis = preis * verkaufsmenge;
-        kassenzettel = "gesamtpreis" + gesamtpreis;
-        return kassenzettel;
-    }
+
 
 }
