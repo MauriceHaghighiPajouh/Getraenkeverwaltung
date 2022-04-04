@@ -1,9 +1,7 @@
 import javax.swing.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
+
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -26,22 +24,18 @@ public class Verkaufsfenster {
     private JLabel labelmwst;
 
 
-    // Column Names
+    // Jtable
     private String[] columnNames = {"Name", "Menge", "Preis"};
-    protected String[][] data = new String[0][columnNames.length];
+    private String[][] data = new String[0][columnNames.length];
 
 
     public Verkaufsfenster(ArrayList<Getraenke> liste, ArrayList<Snacks> listesnacks) {
 
-        JFrame rechnungsFenster = new JFrame("Rechnung");
-        rechnungsFenster.setContentPane(new Rechnungsfenster(liste).panel1);
-        rechnungsFenster.setDefaultCloseOperation(rechnungsFenster.DISPOSE_ON_CLOSE);
-        rechnungsFenster.pack();
-        rechnungsFenster.setSize(320, 160);
-
+        // arrayliste snack und getränke
         this.listesnacks = listesnacks;
         this.liste = liste;
 
+        //comboboxen werden mit loop gefüllt
         for (Getraenke item : liste) {
             comboBox1.addItem(item.getName());
         }
@@ -50,28 +44,29 @@ public class Verkaufsfenster {
             comboBox2.addItem(item.getName());
         }
 
-
+        //textfields führen verkaufen methode aus
         textField1.addActionListener(e -> this.verkaufenGetraenk());
 
         textField2.addActionListener(e -> this.verkaufenSnacks());
 
-        // Initializing the JTable
+        // Jtable initalisieren
         table1.setModel(new DefaultTableModel());
 
-
+        //löschenknopf löscht warenkorb
         loeschenButton.addActionListener(e -> warenkorbLoeschen());
 
-        loeschenButton.addActionListener(e -> table1.setModel(new DefaultTableModel()));
+        loeschenButton.addActionListener(e -> table1.setModel(new DefaultTableModel()));  //Jtable wird geleert
 
-        verkaufenbutton.addActionListener(e->getSum());
+        verkaufenbutton.addActionListener(e->getSum());         // methode getsum wird ausgeführt bei aktion
 
-        loeschenButton.addActionListener(e->labelrechnung.setText(""));
+        loeschenButton.addActionListener(e->labelrechnung.setText(""));     //label werden "gelöscht"
         loeschenButton.addActionListener(e->labelmwst.setText(""));
 
 
     }
 
-
+    /*2. Verkauf methode, kopiert menge , getränk und preis
+    * in ein array, welches dann in das 2d array gefüllt wird, welches in der tabelle angezeigt wird*/
     private void verkaufenGetraenk() {
 
         Getraenke selectedGetraenk = liste.get(comboBox1.getSelectedIndex());
@@ -96,11 +91,11 @@ public class Verkaufsfenster {
 
 
     }
-
+        //warenkorb wird "gelöscht"
     private void warenkorbLoeschen() {
         data = new String[0][columnNames.length];
     }
-
+        //selbe methode wie getränke , nur für snacks. Leider hat es für mich nicht funktioniert beides zu kombinieren
     private void verkaufenSnacks() {
 
 
@@ -128,7 +123,7 @@ public class Verkaufsfenster {
 
     }
 
-
+        //Funktion um die werte einer JTable zusammenzurechnen
     public void getSum()
     {
         int numrow= table1.getRowCount();
@@ -138,6 +133,7 @@ public class Verkaufsfenster {
             double value = Double.valueOf(table1.getValueAt(i,2).toString());
             total+=value;
         }
+        //preis wird angezeigt
         labelrechnung.setText(String.format("%4.2f",(total)));
         labelmwst.setText(String.format("%4.2f",(total*0.19)));
 

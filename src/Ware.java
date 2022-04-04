@@ -1,3 +1,4 @@
+
 public abstract class Ware {
 
     private String name;
@@ -9,6 +10,8 @@ public abstract class Ware {
         this.bestand = bestand;
         this.preis = preis;
     }
+
+
 
     public String getName() {
         return name;
@@ -38,15 +41,20 @@ public abstract class Ware {
     }
 
 
-    //methode verkauf
+    //methode verkauf + bestellen
+
     public void verkaufen(int verkaufsmenge) {
         bestand = bestand - verkaufsmenge;
     }
-
-    public void bestellen(int bestellmenge) {
-        bestand = bestand + bestellmenge;
+    public void bestellen(int bestellmenge){
+        bestand=bestand+bestellmenge;
     }
 
 
 
-}
+
+    }
+
+
+
+
