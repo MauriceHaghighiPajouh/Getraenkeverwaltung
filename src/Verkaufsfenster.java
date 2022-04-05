@@ -1,5 +1,7 @@
 import javax.swing.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
@@ -53,7 +55,7 @@ public class Verkaufsfenster {
         table1.setModel(new DefaultTableModel());
 
         //löschenknopf löscht warenkorb
-        loeschenButton.addActionListener(e -> warenkorbLoeschen());
+
 
         loeschenButton.addActionListener(e -> table1.setModel(new DefaultTableModel()));  //Jtable wird geleert
 
@@ -63,6 +65,12 @@ public class Verkaufsfenster {
         loeschenButton.addActionListener(e->labelmwst.setText(""));
 
 
+        loeschenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                warenkorbLoeschen();
+            }
+        });
     }
 
     /*2. Verkauf methode, kopiert menge , getränk und preis
